@@ -25,6 +25,17 @@ for x in `seq 1 50`; do
   chown ${vuser}:apache /home/${vuser}/www
 
   # Populate web content?
+  case $(( $RANDOM % 3 )) in
+    0)
+      touch /home/${vuser}/www/index.html
+    ;;
+    1)
+      # Install wordpress?
+    ;;
+    2)
+      # Install non-wordpress?
+    ;;
+  esac
 
   # Config vhost in apache
   mkdir -p /etc/httpd/conf/vhosts
